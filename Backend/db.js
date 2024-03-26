@@ -12,9 +12,9 @@ const connectDB = async()=>{
 }
 
 const todoSchema = new  mongoose.Schema({
-    title: { type : String , required : true },
+    title: { type : String ,  },
     description : {type :String},
-    completed : {type : Boolean, default : false}
+    completed : {type : Boolean, }
 });
 
 

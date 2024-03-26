@@ -30,7 +30,7 @@ app.get("/todos", async (req, res) => {
   }
 });
 
-app.post("/todo", async (req, res) => {
+app.post("/add-todo", async (req, res) => {
   // add a new todo
 
   const payload = req.body;
@@ -64,7 +64,7 @@ app.post("/todo", async (req, res) => {
   }
 });
 
-app.put("/completed", async (req, res) => {
+app.put("/todo-completed", async (req, res) => {
   // update as completed
 
   const payload = req.body;
@@ -72,9 +72,9 @@ app.put("/completed", async (req, res) => {
 
   try {
     if (putTodo.success) {
-      const result = await Todo.update(
+      const result = await Todo.updateOne(
         {
-          _id: putTodo.id,
+          _id: req.body.id,
         },
         {
           completed: true,
@@ -90,6 +90,7 @@ app.put("/completed", async (req, res) => {
     } else {
       res.status(500).json({
         msg: "Invalid Data for updation.",
+
         error: putTodo.error,
       });
     }
