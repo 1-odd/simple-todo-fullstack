@@ -13,5 +13,5 @@ const updateTodo = z.object({
 
 module.exports={
     createTodo,
-    updateTdo
+    updateTodo
 } ;
