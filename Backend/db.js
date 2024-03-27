@@ -12,16 +12,16 @@ const connectDB = async()=>{
 }
 
 const todoSchema = new  mongoose.Schema({
-    title: { type : String ,  },
+    title: { type : String ,require:true  },
     description : {type :String},
     completed : {type : Boolean, }
 });
-
+Todo = mongoose.model("Todos",todoSchema),
 
 
 
 module.exports = {
-    Todo : mongoose.model("Todos",todoSchema),
+    Todo,
     connectDB
 
 };

@@ -2,11 +2,13 @@ const express = require("express");
 require("dotenv").config();
 const { createTodo, updateTodo } = require("./typesZod");
 const { connectDB, Todo } = require("./db");
+const cors=require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/todos", async (req, res) => {
   // fetch all exist todos
@@ -34,15 +36,17 @@ app.post("/add-todo", async (req, res) => {
   // add a new todo
 
   const payload = req.body;
+  
 
   const userTodo = createTodo.safeParse(payload); // validation check
+ 
   try {
     if (userTodo.success) {
       // if validation pass
 
       const todo = await Todo.create({
-        title: userTodo.title,
-        description: userTodo.description || "",
+        title: userTodo.data.title,
+        description: userTodo.data.description || "",
         completed: false,
       });
       res.status(200).json({
