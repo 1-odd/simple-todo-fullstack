@@ -37,8 +37,4 @@ It has the following features:
  - Can do lots of improvements
 	 -  Can add Auth.. System
 	 - Can add a delete todo logic 
-<<<<<<< HEAD
-	 - Can use better logic to improve re-rendering performance.
-=======
-	 - Can use better logic to improve re-rendering performance.
->>>>>>> e2ce8a461fe105ef89c2b668a3c4958d1ff4b905
+
