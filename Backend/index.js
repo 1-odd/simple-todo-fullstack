@@ -70,7 +70,6 @@ app.post("/add-todo", async (req, res) => {
 
 app.put("/todo-completed", async (req, res) => {
   // update as completed
-
   const payload = req.body;
   const putTodo = updateTodo.safeParse(payload);
 
